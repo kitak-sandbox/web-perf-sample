@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var good = document.getElementById('good');
+      var bad = document.getElementById('bad');
+      var target = document.getElementById('target');
+
+      good.addEventListener('click', function(e) {
+        var x = e.target.offsetLeft;
+        var y = e.target.offsetTop;
+        target.style.position = 'absolute';
+        target.style.left = x+'px';
+        target.style.top = y+'px';
+      });
+
+      bad.addEventListener('click', function(e) {
+        target.style.position = 'absolute';
+        target.style.left = e.target.offsetLeft+'px';
+        target.style.top = e.target.offsetTop+'px';
+      });
+    });
+  </script>
+</head>
+<body>
+  <button id="good">good</button>
+  <button id="bad">bad</button>
+  <p id="target">target</p>
+</body>
+</html>
