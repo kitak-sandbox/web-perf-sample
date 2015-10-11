@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('DOMContentLoaded');
+      console.log(performance.now()); // micro sec order
+    });
+    window.addEventListener('load', function() {
+      console.log('load');
+      console.log(performance.now());
+      setTimeout(function() {
+        console.log(chrome.loadTimes().firstPaintTime - performance.timing.navigationStart/1000); // milli sec order
+      }, 1000);
+    });
+  </script>
+</head>
+<body>
+  <script src="http://cdn-ak.b.st-hatena.com/js/bookmark_button.js" charset="utf-8"></script>
+  <script>
+    console.log(document.body.clientHeight);
+  </script>
+  <p>aaaa</p>
+  <script>
+    console.log(document.body.clientHeight);
+  </script>
+  <p>bbbb</p>
+  <script>
+    console.log(document.body.clientHeight);
+  </script>
+  <p>cccc</p>
+  <script>
+    console.log(document.body.clientHeight);
+    console.log('body bottom');
+    console.log(performance.now());
+  </script>
+</body>
+</html>
