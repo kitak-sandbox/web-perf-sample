@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body {
+      padding: 30px;
+    }
+
+    #target {
+      position: absolute;
+      top: 100px;
+      left: 30px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: red;
+    }
+
+    #target2 {
+      position: absolute;
+      top: 250px;
+      left: 30px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: red;
+
+      will-change: transform;
+    }
+
+    .start {
+      animation: move 3s ease infinite;
+    }
+
+    @keyframes move {
+      50% {
+        transform: translate(100px, 100px);
+      }
+    }
+  </style>
+  <script>
+    var colors = ["red", "blue", "yellow", "green", "black", "tomato", "gray"];
+    var pickColor = function() {
+      var index = Math.floor(Math.random()*colors.length);
+      return colors[index];
+    };
+    var repeatChangeColor = function() {
+      target.style.background = pickColor();
+      target2.style.background = pickColor();
+      setTimeout(repeatChangeColor, 200);
+    };
+    document.addEventListener('DOMContentLoaded', function() {
+      var btn = document.getElementById('btn');
+      var target = document.getElementById('target');
+      var target2 = document.getElementById('target2');
+      btn.addEventListener('click', function() {
+        target.setAttribute('class', 'start');
+        target2.setAttribute('class', 'start');
+        repeatChangeColor();
+      }, false);
+    });
+  </script>
+</head>
+<body>
+  <button id="btn">animation start</button>
+  <div id="target"></div>
+  <div id="target2"></div>
+</body>
+</html>
+
