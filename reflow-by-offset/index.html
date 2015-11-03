@@ -10,17 +10,21 @@
       var target = document.getElementById('target');
 
       good.addEventListener('click', function(e) {
+        console.timeStamp('good');
         var x = e.target.offsetLeft;
         var y = e.target.offsetTop;
         target.style.position = 'absolute';
         target.style.left = x+'px';
         target.style.top = y+'px';
+        console.timeStamp('goodEnd');
       });
 
       bad.addEventListener('click', function(e) {
+        console.timeStamp('bad');
         target.style.position = 'absolute';
         target.style.left = e.target.offsetLeft+'px';
         target.style.top = e.target.offsetTop+'px';
+        console.timeStamp('badEnd');
       });
     });
   </script>
