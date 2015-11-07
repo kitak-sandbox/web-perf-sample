@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Heavy Paint</title>
+<style>
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  list-style-type: none;
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+}
+
+.is-enable {
+  color: white;
+  background-color: blue;
+}
+
+.add-shadow img {
+  box-shadow: 1px 1px 20px blue;
+}
+
+.add-radius img {
+  border-radius: 30px;
+}
+
+.add-border img {
+  border: 4px dotted orange;
+}
+</style>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.1/jquery.min.js"></script>
+<script>
+$(function() {
+  var $ul = $('#js-sample');
+  var $imgs = $ul.find('img');
+
+  $(document.body).on('mousemove', function() {
+    $ul.toggleClass('add-shadow');
+    $ul.toggleClass('add-radius');
+    $ul.toggleClass('add-border');
+  });
+
+  $('#js-shadow').click(function() {
+    $ul.toggleClass('add-shadow');
+    $(this).toggleClass('is-enable');
+  });
+
+  $('#js-radius').click(function() {
+    $ul.toggleClass('add-radius');
+    $(this).toggleClass('is-enable');
+  });
+
+  $('#js-border').click(function() {
+    $ul.toggleClass('add-border');
+    $(this).toggleClass('is-enable');
+  });
+
+  function toggleSrc(toSrc) {
+    if ($imgs.first().attr('src') === toSrc) {
+      $imgs.attr('src', 'http://placekitten.com/100/100');
+    } else {
+      $imgs.attr('src', toSrc);
+    }
+  }
+});
+</script>
+</head>
+<body>
+<p>
+  <button id="js-shadow">Shadow</button>
+  <button id="js-radius">Radius</button>
+  <button id="js-border">Dotted</button>
+</p>
+ <ul id="js-sample" class="">
+  <li><img src="http://loremflickr.com/100/100" width="100" height="100" /></li>
+  <li><img src="http://loremflickr.com/100/100" width="100" height="100" /></li>
+  <li><img src="http://loremflickr.com/100/100" width="100" height="100" /></li>
+  <li><img src="http://loremflickr.com/100/100" width="100" height="100" /></li>
+  <li><img src="http://loremflickr.com/100/100" width="100" height="100" /></li>
+  <li><img src="http://loremflickr.com/100/100" width="100" height="100" /></li>
+  <li><img src="http://loremflickr.com/100/100" width="100" height="100" /></li>
+  <li><img src="http://loremflickr.com/100/100" width="100" height="100" /></li>
+  <li><img src="http://loremflickr.com/100/100" width="100" height="100" /></li>
+  <li><img src="http://loremflickr.com/100/100" width="100" height="100" /></li>
+  <li><img src="http://loremflickr.com/100/100" width="100" height="100" /></li>
+  <li><img src="http://loremflickr.com/100/100" width="100" height="100" /></li>
+  <li><img src="http://loremflickr.com/100/100" width="100" height="100" /></li>
+  <li><img src="http://loremflickr.com/100/100" width="100" height="100" /></li>
+  <li><img src="http://loremflickr.com/100/100" width="100" height="100" /></li>
+  <li><img src="http://loremflickr.com/100/100" width="100" height="100" /></li>
+  <li><img src="http://loremflickr.com/100/100" width="100" height="100" /></li>
+  <li><img src="http://loremflickr.com/100/100" width="100" height="100" /></li>
+  <li><img src="http://loremflickr.com/100/100" width="100" height="100" /></li>
+  <li><img src="http://loremflickr.com/100/100" width="100" height="100" /></li>
+  <li><img src="http://loremflickr.com/100/100" width="100" height="100" /></li>
+  <li><img src="http://loremflickr.com/100/100" width="100" height="100" /></li>
+  <li><img src="http://loremflickr.com/100/100" width="100" height="100" /></li>
+  <li><img src="http://loremflickr.com/100/100" width="100" height="100" /></li>
+  <li><img src="http://loremflickr.com/100/100" width="100" height="100" /></li>
+  <li><img src="http://loremflickr.com/100/100" width="100" height="100" /></li>
+  <li><img src="http://loremflickr.com/100/100" width="100" height="100" /></li>
+</ul>
+</body>
+</html>
+
